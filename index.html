@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Angelin!</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Poppins:ital,wght@0,200;0,300;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth; /* smooth scrolling between sections */
+    }
+  </style>
+</head>
+<body>
+  <div id="backdrop" aria-hidden="true"></div>
+  <!-- Sparkle overlay -->
+  <div class="sparkle-overlay"></div>
+
+  <!-- Floating decorative elements -->
+  <div class="decor decor1">🎀</div>
+  <div class="decor decor2">🌸</div>
+  <div class="decor decor3">💖</div>
+  <div class="decor decor4">🎂</div>
+  <div class="decor decor5">⭐</div>
+  <!-- Confetti canvas (only fires on page load once) -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Background music -->
+  <audio id="bg-music" loop>
+    <source src="ins_out.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Music toggle button -->
+  <button id="music-toggle" class="music-btn floating">🎵 Play Music</button>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="#home" class="active">🏠 Home</a>
+    <a href="#about">💌 About</a>
+    <a href="#gallery">📸 Gallery</a>
+  </nav>
+
+  <!-- 🏠 Home Section -->
+  <section id="home">
+    <header>
+      <h1>Happy Birthday<br><span>my dear Chechy </span></h1>
+    </header>
+
+    <section class="profile-frame floating-frame">
+      <div class="frame-container">
+          <div class="halo"></div>
+          <img src="frame.png" alt="Flower Frame" class="frame">
+          <img src="angelin.jpeg" alt="Angelin" class="profile-pic">
+      </div>
+    </section>
+
+    <section class="letter fade-section">
+      <h2>To my sweetest sister 💌</h2>
+      <p>
+        Angelin, you’re the sparkle in the lives of your family, the smile that lights up even the cloudiest days. Watching you grow into the amazing person you are has been one of my life’s biggest blessings.
+      </p>
+      <p>
+        From silly giggles to heartfelt talks, every moment with you is a memory I cherish. I hope today brings you all the love, magic, and cake you deserve.
+      </p>
+      <p>
+        Keep being the incredible you, and never forget how deeply you're loved. Happy Birthday, my cupcake! 🎀🎂
+      </p>
+      <p class="sign">— Joshua 💖</p>
+    </section>
+  </section>
+
+  <!-- 💌 About Section -->
+  <section id="about" class="fade-section">
+    <h1 align="center">About Angelin 🎀</h1>
+    <div class="letter">
+      <p>
+        Angelin is not just my sister, she’s the heart of our family. 🌸  
+        She’s cheerful, loving, and always the one who can make anyone laugh in a second.  
+        Whether it’s through her kindness or her silly little jokes, she spreads joy everywhere she goes.  
+      </p>
+      <p>
+        She loves music, good food, and creating memories with the people she cares about.  
+        Most importantly, she’s someone I’m truly blessed to call my sister. 💖
+      </p>
+    </div>
+  </section>
+
+  <!-- 📸 Gallery Section -->
+  <section id="gallery" class="gallery fade-section">
+    <h2>Sweet Memories 📸</h2>
+    <div class="photo-grid">
+      <div class="polaroid p1"><img src="angelin1.JPG" alt="Memory 1"></div>
+      <div class="polaroid p2"><img src="angelin2.JPG" alt="Memory 2"></div>
+      <div class="polaroid p3"><img src="angelin3.jpg" alt="Memory 3"></div>
+      <div class="polaroid p4"><img src="angelin4.JPG" alt="Memory 4"></div>
+      <div class="polaroid p5"><img src="angelin5.jpg" alt="Memory 5"></div>
+      <div class="polaroid p6"><img src="angelin6.JPG" alt="Memory 6"></div>
+      <div class="polaroid p7"><img src="angelin7.JPG" alt="Memory 7"></div>
+      <div class="polaroid p8"><img src="angelin8.JPG" alt="Memory 8"></div>
+      <div class="polaroid p9"><img src="angelin9.jpg" alt="Memory 9"></div>
+      <div class="polaroid p10"><img src="angelin10.jpg" alt="Memory 10"></div>
+      <div class="polaroid p11"><img src="angelin11.jpg" alt="Memory 11"></div>
+      <div class="polaroid p12"><img src="angelin12.JPG" alt="Memory 12"></div>
+      <div class="polaroid p13"><img src="angelin13.JPG" alt="Memory 13"></div>
+      <div class="polaroid p14"><img src="angelin14.JPG" alt="Memory 14"></div>
+      <div class="polaroid p15"><img src="angelin15.JPG" alt="Memory 15"></div>
+      <div class="polaroid p16"><img src="angelin16.jpeg" alt="Memory 16"></div>
+      <div class="polaroid p17"><img src="angelin17.jpeg" alt="Memory 17"></div>
+      <div class="polaroid p18"><img src="angelin18.jpeg" alt="Memory 18"></div>
+      <div class="polaroid p19"><img src="angelin19.jpeg" alt="Memory 19"></div>
+      <div class="polaroid p20"><img src="angelin20.jpeg" alt="Memory 20"></div>
+    </div>
+  </section>
+
+  <footer>
+    Made with <span class="glow-heart">💖</span> by Joshua
+  </footer>
+
+  <!-- 🎵 Music toggle script -->
+  <script>
+    const toggleBtn = document.getElementById("music-toggle");
+    const audio = document.getElementById("bg-music");
+    let isPlaying = false;
+
+    toggleBtn.addEventListener("click", () => {
+        if (!isPlaying) {
+          audio.play();
+          toggleBtn.textContent = "⏸ Pause Music";
+          toggleBtn.classList.add('playing');
+        } else {
+          audio.pause();
+          toggleBtn.textContent = "🎵 Play Music";
+          toggleBtn.classList.remove('playing');
+        }
+        isPlaying = !isPlaying;
+    });
+  </script>
+
+  <!-- 🎉 Confetti with fade-out -->
+  <script>
+    const confettiCanvas = document.getElementById("confetti-canvas");
+    const ctx = confettiCanvas.getContext("2d");
+    confettiCanvas.width = window.innerWidth;
+    confettiCanvas.height = window.innerHeight;
+
+    const confettiPieces = [];
+    const colors = ["#ff69b4", "#ffb6c1", "#ffc0cb", "#fff0f5"];
+
+    for (let i = 0; i < 150; i++) {
+      confettiPieces.push({
+        x: Math.random() * confettiCanvas.width,
+        y: Math.random() * confettiCanvas.height - confettiCanvas.height,
+        w: 8,
+        h: 14,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        speed: Math.random() * 3 + 2,
+        opacity: Math.random(),
+        tilt: Math.random() * 10 - 10
+      });
+    }
+
+    function drawConfetti(globalAlpha = 1) {
+      ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+      ctx.globalAlpha = globalAlpha;
+      confettiPieces.forEach((p) => {
+        ctx.fillStyle = p.color;
+        ctx.fillRect(p.x, p.y, p.w, p.h);
+      });
+      ctx.globalAlpha = 1;
+    }
+
+    function updateConfetti() {
+      confettiPieces.forEach((p) => {
+        p.y += p.speed;
+        p.x += Math.sin(p.tilt);
+        if (p.y > confettiCanvas.height) p.y = -10;
+      });
+    }
+
+    let confettiDuration = 3000; // 3s
+    let confettiEnd = Date.now() + confettiDuration;
+    let fadingOut = false;
+    let fadeAlpha = 1;
+
+    function animateConfetti() {
+      if (!fadingOut) {
+        drawConfetti();
+        updateConfetti();
+        if (Date.now() < confettiEnd) {
+          requestAnimationFrame(animateConfetti);
+        } else {
+          fadingOut = true;
+          requestAnimationFrame(fadeOutConfetti);
+        }
+      }
+    }
+
+    function fadeOutConfetti() {
+      fadeAlpha -= 0.02;
+      if (fadeAlpha > 0) {
+        drawConfetti(fadeAlpha);
+        updateConfetti();
+        requestAnimationFrame(fadeOutConfetti);
+      } else {
+        ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+      }
+    }
+
+    animateConfetti();
+  </script>
+
+  <script>
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".navbar a");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 150; // adjust for navbar + padding
+      const sectionHeight = section.clientHeight;
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === "#" + current) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
+
+<script>
+  const backdrop = document.getElementById('backdrop');
+  const polaroids = document.querySelectorAll('.polaroid');
+
+  let currentPolaroid = null;
+  let originalParent = null;
+  let originalNext = null;
+
+  polaroids.forEach(card => {
+    card.addEventListener('click', () => {
+      if (currentPolaroid) return; // only one open at a time
+
+      currentPolaroid = card;
+      originalParent = card.parentElement;
+      originalNext = card.nextElementSibling;
+
+      // Move to body so it escapes any stacking context and sits above backdrop
+      document.body.appendChild(card);
+
+      // Zoom + show backdrop
+      card.classList.add('zoomed');
+      backdrop.classList.add('active');
+
+      // Close button
+      const closeBtn = document.createElement('span');
+      closeBtn.className = 'close-polaroid';
+      closeBtn.textContent = '×';
+      card.appendChild(closeBtn);
+
+      const close = () => {
+        card.classList.remove('zoomed');
+        backdrop.classList.remove('active');
+        closeBtn.remove();
+
+        // Restore to original position in the grid
+        if (originalNext) originalParent.insertBefore(card, originalNext);
+        else originalParent.appendChild(card);
+
+        currentPolaroid = null;
+        originalParent = null;
+        originalNext = null;
+
+        backdrop.removeEventListener('click', onBackdrop);
+        document.removeEventListener('keydown', onEsc);
+      };
+
+      const onBackdrop = (e) => { if (e.target === backdrop) close(); };
+      const onEsc = (e) => { if (e.key === 'Escape') close(); };
+
+      closeBtn.addEventListener('click', (e) => { e.stopPropagation(); close(); });
+      backdrop.addEventListener('click', onBackdrop);
+      document.addEventListener('keydown', onEsc);
+    });
+  });
+</script>
+
+
+</body>
+</html>

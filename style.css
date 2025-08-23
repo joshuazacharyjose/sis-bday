@@ -1,0 +1,567 @@
+/* 🌟 Sparkle overlay */
+.sparkle-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  background-image: radial-gradient(#fff 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.3;
+  animation: sparkle-move 20s linear infinite;
+  z-index: 5;
+}
+@keyframes sparkle-move {
+  from { background-position: 0 0; }
+  to { background-position: 100px 100px; }
+}
+
+/* 🌟 Floating frame halo */
+.halo {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 120%; height: 120%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255,192,203,0.4) 0%, transparent 70%);
+  animation: halo-pulse 3s ease-in-out infinite;
+  z-index: 0;
+}
+@keyframes halo-pulse {
+  0%,100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+  50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+}
+
+/* 🎵 Music playing pulse */
+.music-btn.playing {
+  box-shadow: 0 0 15px #ff69b4;
+  animation: btn-pulse 1.5s infinite ease-in-out;
+}
+@keyframes btn-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* ✨ Section fade-in */
+.fade-section {
+  opacity: 0;
+  animation: fadeInUp 1s forwards;
+}
+.fade-section:nth-of-type(2) { animation-delay: 0.5s; }
+.fade-section:nth-of-type(3) { animation-delay: 1s; }
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 💖 Glowing heart */
+.glow-heart {
+  animation: heart-glow 1.5s infinite;
+}
+@keyframes heart-glow {
+  0%,100% { text-shadow: 0 0 5px #ff69b4; }
+  50% { text-shadow: 0 0 15px #ff1493; }
+}
+
+/* Slight floating for frame */
+.floating-frame {
+  animation: floaty 4s ease-in-out infinite;
+}
+
+/* Confetti canvas */
+#confetti-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+body {
+  margin: 0;
+  background: linear-gradient(to bottom right, #ffe6f0, #ffd6fa);
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+header {
+  text-align: center;
+  padding: 50px 20px 30px;
+}
+
+h1 {
+  font-family: 'Marck Script', cursive;
+  font-size: 65px;
+  color: #ff69b4;
+  text-shadow: 2px 2px #fff0f5;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+h1 span {
+  font-size: 2rem;
+  color: #e75480;
+}
+
+.profile-frame {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.frame-container {
+  position: relative;
+  width: 280px;
+  height: 280px;
+}
+
+.frame-container .frame {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; 
+  pointer-events: none;
+}
+
+.frame-container .profile-pic {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60%;
+  height: 60%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  border-radius: 50%;
+  z-index: 2; 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+.letter {
+  max-width: 800px;
+  margin: 30px auto;
+  background: linear-gradient(to bottom right, #ff83ac, #ffaab0);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+  animation: fadeIn 1.2s ease-out;
+}
+
+.letter h2 {
+  font-family: 'Marck Script', cursive;
+  font-size: 2rem;
+  color: #ffbcde;
+  text-align: center;
+}
+
+.letter p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.8;
+  padding: 10px;
+}
+
+.sign {
+  text-align: right;
+  font-style: italic;
+  margin-top: 20px;
+  color: #e75480;
+}
+
+.gallery {
+  margin: 60px auto;
+  text-align: center;
+}
+
+.gallery h2 {
+  font-family: 'Marck Script', cursive;
+  font-size: 2rem;
+  color: #ff69b4;
+  margin-bottom: 30px;
+}
+
+.photo-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 0 20px;
+}
+
+.polaroid {
+  background: white;
+  padding: 12px;
+  width: 275px;  /* made bigger */
+  border-radius: 14px;
+  box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3);
+  transform: rotate(var(--angle));
+  transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
+  opacity: 1;
+  cursor: pointer;
+}
+.polaroid img {
+  width: 250px;
+  height: 200px;
+  object-fit: cover; /* crops edges but fills space */
+  border-radius: 10px;
+}
+
+
+.polaroid:hover {
+  transform: scale(1.08) rotate(var(--angle));
+  box-shadow: 0 12px 28px rgba(255, 105, 180, 0.5);
+}
+
+.p1 { --angle: -5deg; }
+.p2 { --angle: 3deg; }
+.p3 { --angle: -8deg; }
+.p4 { --angle: 6deg; }
+.p5 { --angle: 12deg; }
+.p6 { --angle: -4deg; }
+.p7 { --angle: 5deg; }
+.p8 { --angle: -6deg; }
+.p9 { --angle: 8deg; }
+.p10 { --angle: -10deg; }
+.p11 { --angle: 4deg; }
+.p12 { --angle: -7deg; }
+.p13 { --angle: 6deg; }
+.p14 { --angle: -3deg; }
+.p15 { --angle: 9deg; }
+.p16 { --angle: -2deg; }
+.p17 { --angle: 7deg; }
+.p18 { --angle: -9deg; }
+.p19 { --angle: 2deg; }
+.p20 { --angle: -11deg; }
+
+/* Add more polaroids with .p4, .p5, etc. if needed */
+
+footer {
+  text-align: center;
+  padding: 40px;
+  font-size: 1rem;
+  color: #c96fa2;
+}
+
+.decor {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.8;
+  animation: float 6s infinite ease-in-out;
+}
+
+.decor1 { top: 50px; left: 20px; animation-delay: 0s; }
+.decor2 { top: 200px; right: 40px; animation-delay: 2s; }
+.decor3 { top: 400px; left: 100px; animation-delay: 4s; }
+.decor4 { bottom: 200px; right: 100px; animation-delay: 3s; }
+.decor5 { bottom: 100px; left: 50px; animation-delay: 1s; }
+
+* {
+  transition: all 0.3s ease-in-out;
+  box-sizing: border-box;
+}
+
+/* Animations */
+@keyframes glow {
+  from { text-shadow: 0 0 10px #ff69b4; }
+  to { text-shadow: 0 0 20px #ff69b4, 0 0 30px #ff1493; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ffb6c1;
+  color: white;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  padding: 10px 18px;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: background 0.3s ease;
+  z-index: 1000;
+  border: none;
+}
+
+.music-btn:hover {
+  background: #ff69b4;
+}
+
+/* ✨ Floating animation */
+.floating {
+  animation: floaty 3s ease-in-out infinite;
+}
+
+@keyframes floaty {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Lightbox background */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Lightbox image */
+.lightbox img {
+  max-width: 85%;
+  max-height: 85%;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  animation: zoomIn 0.4s ease;
+}
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+}
+
+
+/* Animation */
+@keyframes zoomIn {
+  from { transform: scale(0.6); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Backdrop overlay behind the zoomed polaroid */
+#backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.68);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 900; /* below navbar/music button (which are 1000+), and below the zoomed polaroid (1000) */
+  transition: opacity 0.35s ease;
+}
+
+#backdrop.active {
+  opacity: 1;
+  pointer-events: auto; /* allows click-to-close */
+}
+
+
+/* Zoomed Polaroid (pops above backdrop) */
+.polaroid.zoomed {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.6) rotate(0deg);
+  z-index: 1000;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.6);
+  background: white;
+  opacity: 1; /* fully visible */
+}
+
+/* Subtle fade/scale when closing */
+.polaroid.closing {
+  transform: translate(-50%, -50%) scale(0.8) rotate(0deg);
+  opacity: 0;
+}
+
+/* Close button for zoomed photo */
+.close-polaroid {
+  position: absolute;
+  top: -8px;     /* was -12px */
+  right: -8px;   /* was -12px */
+  font-size: 15px;   /* was 26px */
+  background: #fff;
+  color: #000;
+  border-radius: 50%;
+  padding: 1px 7px;  /* smaller padding */
+  cursor: pointer;
+  z-index: 1100;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+/* ❗️Remove/neutralize any previous body::before dim overlay */
+body::before { content: none !important; }
+
+/* 🌟 Sparkle overlay */
+.sparkle-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  background-image: radial-gradient(#fff 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.3;
+  animation: sparkle-move 20s linear infinite;
+  z-index: 5;
+}
+@keyframes sparkle-move {
+  from { background-position: 0 0; }
+  to { background-position: 100px 100px; }
+}
+
+/* 🌟 Floating frame halo */
+.halo {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 120%; height: 120%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255,192,203,0.4) 0%, transparent 70%);
+  animation: halo-pulse 3s ease-in-out infinite;
+  z-index: 0;
+}
+@keyframes halo-pulse {
+  0%,100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+  50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+}
+
+/* 🎵 Music playing pulse */
+.music-btn.playing {
+  box-shadow: 0 0 15px #ff69b4;
+  animation: btn-pulse 1.5s infinite ease-in-out;
+}
+@keyframes btn-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* ✨ Section fade-in */
+.fade-section {
+  opacity: 0;
+  animation: fadeInUp 1s forwards;
+}
+.fade-section:nth-of-type(2) { animation-delay: 0.5s; }
+.fade-section:nth-of-type(3) { animation-delay: 1s; }
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 💖 Glowing heart */
+.glow-heart {
+  animation: heart-glow 1.5s infinite;
+}
+@keyframes heart-glow {
+  0%,100% { text-shadow: 0 0 5px #ff69b4; }
+  50% { text-shadow: 0 0 15px #ff1493; }
+}
+
+/* Slight floating for frame */
+.floating-frame {
+  animation: floaty 4s ease-in-out infinite;
+}
+
+/* Confetti canvas */
+#confetti-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* Navbar */
+/* 🌸 Navbar Styling */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 182, 193, 0.95); /* soft pink with transparency */
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 14px 20px;
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
+  z-index: 1100;
+}
+
+.navbar a {
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #fff;
+  background: #ff69b4;
+  padding: 8px 18px;
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 3px 10px rgba(255, 105, 180, 0.3);
+}
+
+.navbar a:hover {
+  background: #ff85c1;
+  box-shadow: 0 4px 14px rgba(255, 105, 180, 0.5);
+  transform: translateY(-2px);
+}
+
+.navbar a.active {
+  background: #e75480;
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.8);
+}
+
+/* Push content down so navbar doesn’t overlap */
+body {
+  padding-top: 70px;
+}
+
+/* 🌸 Custom Scrollbar with Heart via background image */
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffe6f0;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff69b4, #ff85c1);
+  border-radius: 10px;
+  border: 2px solid #ffe6f0;
+
+  /* 💖 Heart background */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12'><text x='0' y='10' font-size='12'>💖</text></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ff4fa0, #ff69b4);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12'><text x='0' y='10' font-size='12'>💖</text></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10px;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ff69b4 #ffe6f0;
+}
